@@ -4,7 +4,7 @@ const passportJWT = require('./passporJWT');
 const app = express() ;
 const db = require('./mongoose');
 const authController = require('./authcontroller');
-
+app.use(express.json());
 app.get('/', passport.authenticate('jwt', {session: false}), authController.home)
 
 app.post("/auth/local/new", authController.localCreate);
